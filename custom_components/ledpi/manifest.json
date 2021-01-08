@@ -1,0 +1,16 @@
+{
+  "domain": "ledpi",
+  "name": "Raspberry Pi WS2801 LED Controller",
+  "config_flow": true,
+  "documentation": "https://gitlab.com/daniel.muehlbachler/home/integration/ledpi",
+  "requirements": [
+    "webcolors"
+  ],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@muhlba91"
+  ]
+}

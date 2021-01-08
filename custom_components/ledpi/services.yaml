@@ -1,0 +1,18 @@
+rgb_color:
+  description: Set the light's RGB color.
+  fields:
+    entity_id:
+      description: Name(s) of entities to set the color for.
+      example: light.ledpi
+    rgb_color:
+      description: Color for the light in RGB-format.
+      example: "[ 255,255,255 ]"
+brightness:
+  description: Set the light's brightness.
+  fields:
+    entity_id:
+      description: Name(s) of entities to set the brightness for.
+      example: light.ledpi
+    brightness:
+      description: Brightness for the light between 0 and 1.
+      example: 1.0

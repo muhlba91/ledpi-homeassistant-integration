@@ -1,0 +1,11 @@
+{
+  "name": "Raspberry Pi WS2801 LED Controller",
+  "iot_class": "Cloud Polling",
+  "domains": [
+    "ws2801",
+    "light",
+    "raspberrypi"
+  ],
+  "homeassistant": "2020.12.2",
+  "render_readme": true
+}
