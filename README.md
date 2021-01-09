@@ -5,7 +5,7 @@
 
 This component creates an integration that provides a **light entity and sensors** to control
 the [LED-Pi Controller](https://github.com/muhlba91/ledpi-controller) exposed through a simple API found at
-**[LED-Pi Controller Flask API](https://github.com/muhlba91/ledpi-controller-app)** via Home Assistant.
+**[LED-Pi Controller Flask API](https://github.com/muhlba91/ledpi-controller-api)** via Home Assistant.
 
 ---
 
