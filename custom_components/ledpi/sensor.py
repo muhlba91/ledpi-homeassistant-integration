@@ -1,4 +1,4 @@
-"""Platform for the Raspberry Pi WS2801 LED Controller integration."""
+"""Sensors for the LED-Pi LED-Pi integration."""
 import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_NAME, PERCENTAGE
@@ -12,43 +12,31 @@ from .ledpi_entity import LedPiEntity
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: Callable,
-                            discovery_info: Optional[DiscoveryInfoType] = None):
-    """Set up the Raspberry Pi WS2801 LED Controller platform."""
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: ConfigEntry,
+    async_add_entities: Callable,
+    discovery_info: Optional[DiscoveryInfoType] = None,
+):
+    """Set up the LED-Pi sensor platform."""
     name = entry.data[CONF_NAME]
     data = hass.data[DOMAIN][entry.entry_id]
 
     sensors = [
-        LedPiRGBSensor(
-            data[LEDPI_API],
-            data[LEDPI_COORDINATOR],
-            name,
-            entry.entry_id
-        ),
+        LedPiRGBSensor(data[LEDPI_API], data[LEDPI_COORDINATOR], name, entry.entry_id),
         LedPiRGBNameSensor(
-            data[LEDPI_API],
-            data[LEDPI_COORDINATOR],
-            name,
-            entry.entry_id
+            data[LEDPI_API], data[LEDPI_COORDINATOR], name, entry.entry_id
         ),
-        LedPiLEDsSensor(
-            data[LEDPI_API],
-            data[LEDPI_COORDINATOR],
-            name,
-            entry.entry_id
-        ),
+        LedPiLEDsSensor(data[LEDPI_API], data[LEDPI_COORDINATOR], name, entry.entry_id),
         LedPiBrightnessSensor(
-            data[LEDPI_API],
-            data[LEDPI_COORDINATOR],
-            name,
-            entry.entry_id
+            data[LEDPI_API], data[LEDPI_COORDINATOR], name, entry.entry_id
         ),
     ]
     async_add_entities(sensors, True)
 
 
 class LedPiRGBSensor(LedPiEntity):
-    """Representation of the Raspberry Pi WS2801 LED Controller Light Color Sensor."""
+    """LED-Pi Color Sensor."""
 
     @property
     def name(self):
@@ -72,7 +60,7 @@ class LedPiRGBSensor(LedPiEntity):
 
 
 class LedPiRGBNameSensor(LedPiEntity):
-    """Representation of the Raspberry Pi WS2801 LED Controller Light Color Sensor."""
+    """LED-Pi Color Sensor."""
 
     @property
     def name(self):
@@ -96,7 +84,7 @@ class LedPiRGBNameSensor(LedPiEntity):
 
 
 class LedPiLEDsSensor(LedPiEntity):
-    """Representation of the Raspberry Pi WS2801 LED Controller Light Number of LEDs Sensor."""
+    """LED-Pi Number of LEDs Sensor."""
 
     @property
     def name(self):
@@ -120,7 +108,7 @@ class LedPiLEDsSensor(LedPiEntity):
 
 
 class LedPiBrightnessSensor(LedPiEntity):
-    """Representation of the Raspberry Pi WS2801 LED Controller Light Brightness Sensor."""
+    """LED-Pi Brightness Sensor."""
 
     @property
     def name(self):

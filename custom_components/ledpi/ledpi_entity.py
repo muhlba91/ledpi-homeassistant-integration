@@ -1,15 +1,20 @@
-"""The Raspberry Pi WS2801 LED Controller integration."""
+"""The LED-Pi entity."""
 
-from homeassistant.helpers.update_coordinator import CoordinatorEntity, DataUpdateCoordinator
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+    DataUpdateCoordinator,
+)
 
 from .api import API
 from .const import DOMAIN
 
 
 class LedPiEntity(CoordinatorEntity):
-    """Representation of a LED Pi entity."""
+    """A LED Pi entity."""
 
-    def __init__(self, api: API, coordinator: DataUpdateCoordinator, name: str, uuid: str):
+    def __init__(
+        self, api: API, coordinator: DataUpdateCoordinator, name: str, uuid: str
+    ):
         """Initialize a LedPi entity."""
         super().__init__(coordinator)
         self.api = api
@@ -28,5 +33,5 @@ class LedPiEntity(CoordinatorEntity):
             "identifiers": {(DOMAIN, self._uuid)},
             "name": self._name,
             "manufacturer": "LED-Pi",
-            "model": "WS2801 LED"
+            "model": "WS2801 LED",
         }

@@ -1,8 +1,8 @@
 {
   "domain": "ledpi",
-  "name": "Raspberry Pi WS2801 LED Controller",
+  "name": "LED-Pi - Raspberry Pi WS2801 LED Controller",
   "config_flow": true,
-  "documentation": "https://gitlab.com/daniel.muehlbachler/home/integration/ledpi",
+  "documentation": "https://github.com/muhlba91/ledpi-homeassistant-integration",
   "requirements": [
     "webcolors"
   ],

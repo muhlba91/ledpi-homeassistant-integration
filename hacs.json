@@ -1,5 +1,5 @@
 {
-  "name": "Raspberry Pi WS2801 LED Controller",
+  "name": "LED-Pi - Raspberry Pi WS2801 LED Controller",
   "iot_class": "Cloud Polling",
   "domains": [
     "ws2801",

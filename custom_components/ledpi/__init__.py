@@ -1,4 +1,4 @@
-"""The Raspberry Pi WS2801 LED Controller integration."""
+"""The LED-Pi Raspberry Pi WS2801 LED Controller integration."""
 import asyncio
 import logging
 import voluptuous as vol
@@ -34,13 +34,13 @@ PLATFORMS = ("light", "sensor")
 
 
 async def async_setup(hass: HomeAssistant, config: dict):
-    """Set up the Raspberry Pi WS2801 LED Controller component via configuration.yaml."""
+    """Set up LED-Pi component via configuration.yaml."""
     hass.data.setdefault(DOMAIN, {})
     return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
-    """Set up Raspberry Pi WS2801 LED Controller from a config entry."""
+    """Set up LED-Pi from a config entry."""
     hass.data.setdefault(DOMAIN, {})
 
     name = entry.data[CONF_NAME]
@@ -58,12 +58,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         name=name,
         update_method=led_api.update,
         update_interval=timedelta(minutes=scan_interval),
-        request_refresh_debouncer=Debouncer(
-            hass,
-            _LOGGER,
-            cooldown=0,
-            immediate=True
-        )
+        request_refresh_debouncer=Debouncer(hass, _LOGGER, cooldown=0, immediate=True),
     )
 
     hass.data[DOMAIN][entry.entry_id] = {
@@ -84,7 +79,8 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
     unload_ok = all(
         await asyncio.gather(
             *[
-                hass.config_entries.async_forward_entry_unload(entry, platform) for platform in PLATFORMS
+                hass.config_entries.async_forward_entry_unload(entry, platform)
+                for platform in PLATFORMS
             ]
         )
     )

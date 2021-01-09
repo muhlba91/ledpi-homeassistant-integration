@@ -1,9 +1,14 @@
-"""Platform for the Raspberry Pi WS2801 LED Controller integration."""
+"""Light entity for the LED-Pi light."""
 import homeassistant.helpers.config_validation as cv
 import logging
 import voluptuous as vol
-from homeassistant.components.light import LightEntity, SUPPORT_BRIGHTNESS, SUPPORT_COLOR, ATTR_BRIGHTNESS, \
-    ATTR_RGB_COLOR
+from homeassistant.components.light import (
+    LightEntity,
+    SUPPORT_BRIGHTNESS,
+    SUPPORT_COLOR,
+    ATTR_BRIGHTNESS,
+    ATTR_RGB_COLOR,
+)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_NAME
 from homeassistant.core import HomeAssistant
@@ -11,15 +16,25 @@ from homeassistant.helpers import entity_platform
 from homeassistant.helpers.typing import DiscoveryInfoType
 from typing import Optional, Callable
 
-from .const import DOMAIN, LEDPI_API, LEDPI_COORDINATOR, SERVICE_SET_RGB_COLOR, SERVICE_SET_BRIGHTNESS
+from .const import (
+    DOMAIN,
+    LEDPI_API,
+    LEDPI_COORDINATOR,
+    SERVICE_SET_RGB_COLOR,
+    SERVICE_SET_BRIGHTNESS,
+)
 from .ledpi_entity import LedPiEntity
 
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: Callable,
-                            discovery_info: Optional[DiscoveryInfoType] = None):
-    """Set up the Raspberry Pi WS2801 LED Controller platform."""
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: ConfigEntry,
+    async_add_entities: Callable,
+    discovery_info: Optional[DiscoveryInfoType] = None,
+):
+    """Set up the LED-Pi light platform."""
     name = entry.data[CONF_NAME]
     data = hass.data[DOMAIN][entry.entry_id]
 
@@ -52,7 +67,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 
 
 class LedPi(LedPiEntity, LightEntity):
-    """Representation of the Raspberry Pi WS2801 LED Controller Light."""
+    """LED-Pi Light."""
 
     @property
     def name(self):

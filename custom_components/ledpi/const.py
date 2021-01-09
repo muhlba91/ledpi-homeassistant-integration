@@ -1,4 +1,4 @@
-"""Constants for the Raspberry Pi WS2801 LED Controller integration."""
+"""Constants for the LED-Pi integration."""
 
 DOMAIN = "ledpi"
 

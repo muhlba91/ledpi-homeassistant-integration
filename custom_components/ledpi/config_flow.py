@@ -1,4 +1,4 @@
-"""Config flow for Raspberry Pi WS2801 LED Controller integration."""
+"""Config flow for LED-Pi integration."""
 import homeassistant.helpers.config_validation as cv
 import logging
 import voluptuous as vol
@@ -12,14 +12,14 @@ _LOGGER = logging.getLogger(__name__)
 AUTH_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_HOST, default="10.0.150.192"): cv.string,
-        vol.Required(CONF_NAME, default='ledpi'): cv.string,
+        vol.Required(CONF_NAME, default="ledpi"): cv.string,
         vol.Required(CONF_SCAN_INTERVAL, default=5): cv.positive_int,
     }
 )
 
 
 class LedPiFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for Raspberry Pi WS2801 LED Controller."""
+    """Handle a config flow for LED-Pi."""
 
     VERSION = 1
     CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_POLL
@@ -61,7 +61,6 @@ class LedPiFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def _async_endpoint_existed(self, host):
         existing_hosts = [
-            f"{entry.data.get(CONF_HOST)}"
-            for entry in self._async_current_entries()
+            f"{entry.data.get(CONF_HOST)}" for entry in self._async_current_entries()
         ]
         return host in existing_hosts

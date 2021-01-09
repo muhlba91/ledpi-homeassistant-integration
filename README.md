@@ -4,7 +4,9 @@
 [![](https://img.shields.io/github/workflow/status/muhlba91/ledpi-homeassistant-integration/Python%20package?style=for-the-badge)](https://github.com/muhlba91/ledpi-homeassistant-integration/actions)
 
 This component creates an integration that provides a **light entity and sensors** to control
-the [LED-Pi Controller](https://github.com/muhlba91/ledpi-controller) via Home Assistant.
+the [LED-Pi Controller](https://github.com/muhlba91/ledpi-controller) exposed through a simple API as shown in the
+**controller's repository's**
+**[`example/main.py`](https://github.com/muhlba91/ledpi-controller/blob/master/examples/main.py)** via Home Assistant.
 
 ---
 
@@ -15,7 +17,7 @@ I recommend installation through [HACS](https://hacs.xyz/):
 - Ensure HACS is installed.
 - Add this repository (`https://github.com/muhlba91/ledpi-homeassistant-integration.git`) as a custom repository with
   the category *Integration*.
-- Search for and install the "Raspberry Pi WS2801 LED Controller" integration.
+- Search for and install the "LED-Pi - Raspberry Pi WS2801 LED Controller" integration.
 
 ## Configuration
 
@@ -44,23 +46,54 @@ Additionally, it makes **additional services** available to control the light:
 
 ---
 
-## Running Tests
+## Development
 
-To run the test suite create a virtualenv (I recommend checking out [pyenv](https://github.com/pyenv/pyenv)
-and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) for this) and install the test requirements.
+The project uses [poetry](https://poetry.eustace.io/) and to install all dependencies and the build environment, run:
 
 ```bash
-$ pip install -r requirements.test.txt
+$ pip install poetry
+$ poetry install
 ```
 
-After the test dependencies are installed you can simply invoke `pytest` to run the test suite.
+### Testing
+
+1) Install all dependencies as shown above.
+2) Run `pytest` by:
 
 ```bash
+$ poetry run pytest
+# or
 $ pytest
+```
+
+### Linting and Code Style
+
+The project uses [flakehell](https://github.com/life4/flakehell) as a wrapper for flake8,
+and [black](https://github.com/psf/black) for automated code style fixing, also
+using [pre-commit](https://pre-commit.com/).
+
+1) Install all dependencies as shown above.
+2) (Optional) Install pre-commit hooks:
+
+```bash
+$ poetry run pre-commit install
+```
+
+3) Run black:
+
+```bash
+$ poetry run black .
+```
+
+4) Run flakehell:
+
+```bash
+$ poetry run flakehell lint
 ```
 
 ---
 
 ## Contributions
 
-Please feel free to contribute, be it with Issues or Pull Requests! Please read the [Contribution guidelines](CONTRIBUTING.md)
+Please feel free to contribute, be it with Issues or Pull Requests! Please read
+the [Contribution guidelines](CONTRIBUTING.md)
