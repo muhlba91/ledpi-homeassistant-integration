@@ -4,9 +4,8 @@
 [![](https://img.shields.io/github/workflow/status/muhlba91/ledpi-homeassistant-integration/Python%20package?style=for-the-badge)](https://github.com/muhlba91/ledpi-homeassistant-integration/actions)
 
 This component creates an integration that provides a **light entity and sensors** to control
-the [LED-Pi Controller](https://github.com/muhlba91/ledpi-controller) exposed through a simple API as shown in the
-**controller's repository's**
-**[`example/main.py`](https://github.com/muhlba91/ledpi-controller/blob/master/examples/main.py)** via Home Assistant.
+the [LED-Pi Controller](https://github.com/muhlba91/ledpi-controller) exposed through a simple API found at
+**[LED-Pi Controller Flask API](https://github.com/muhlba91/ledpi-controller-app)** via Home Assistant.
 
 ---
 
