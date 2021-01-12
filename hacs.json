@@ -4,7 +4,8 @@
   "domains": [
     "ws2801",
     "light",
-    "raspberrypi"
+    "raspberrypi",
+    "ledpi"
   ],
   "homeassistant": "2021.1.1",
   "render_readme": true
