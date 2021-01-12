@@ -48,8 +48,11 @@ async def async_setup_entry(
     ]
     async_add_entities(lights, True)
 
-    # register service
+    # register services
+    _LOGGER.error(entity_platform)
+    _LOGGER.error(entity_platform.current_platform)
     platform = entity_platform.current_platform.get()
+    _LOGGER.info("registering rgb_color service")
     platform.async_register_entity_service(
         SERVICE_SET_RGB_COLOR,
         {
@@ -57,6 +60,7 @@ async def async_setup_entry(
         },
         "async_set_rgb_color",
     )
+    _LOGGER.info("registering brightness service")
     platform.async_register_entity_service(
         SERVICE_SET_BRIGHTNESS,
         {
@@ -102,7 +106,7 @@ class LedPi(LedPiEntity, LightEntity):
     async def async_turn_on(self, **kwargs):
         """Instruct the light to turn on."""
         if ATTR_BRIGHTNESS in kwargs:
-            self.api.set_brightness(float(kwargs.get(ATTR_BRIGHTNESS)))
+            await self.api.set_brightness(float(kwargs.get(ATTR_BRIGHTNESS)))
         if ATTR_RGB_COLOR in kwargs:
             await self.api.set_rgb(tuple(kwargs.get(ATTR_RGB_COLOR)))
         await self.api.turn_on()

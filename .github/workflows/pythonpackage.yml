@@ -37,6 +37,6 @@ jobs:
           poetry run flakehell lint
           poetry run black --check .
 
-      #- name: Run tests
-      #  run: |
-      #    poetry run pytest
+      - name: Run tests
+        run: |
+          poetry run pytest
