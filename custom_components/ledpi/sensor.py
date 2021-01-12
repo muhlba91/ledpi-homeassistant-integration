@@ -32,6 +32,7 @@ async def async_setup_entry(
             data[LEDPI_API], data[LEDPI_COORDINATOR], name, entry.entry_id
         ),
     ]
+    _LOGGER.debug("adding ledpi sensor entities")
     async_add_entities(sensors, True)
 
 

@@ -46,13 +46,13 @@ async def async_setup_entry(
             entry.entry_id,
         )
     ]
+    _LOGGER.debug("adding ledpi light entity")
     async_add_entities(lights, True)
 
     # register services
-    _LOGGER.error(entity_platform)
-    _LOGGER.error(entity_platform.current_platform)
+    _LOGGER.info("registering additional ledpi service")
     platform = entity_platform.current_platform.get()
-    _LOGGER.info("registering rgb_color service")
+    _LOGGER.debug("registering rgb_color service")
     platform.async_register_entity_service(
         SERVICE_SET_RGB_COLOR,
         {
@@ -60,7 +60,7 @@ async def async_setup_entry(
         },
         "async_set_rgb_color",
     )
-    _LOGGER.info("registering brightness service")
+    _LOGGER.debug("registering brightness service")
     platform.async_register_entity_service(
         SERVICE_SET_BRIGHTNESS,
         {

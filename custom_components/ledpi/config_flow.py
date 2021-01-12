@@ -1,13 +1,10 @@
 """Config flow for LED-Pi integration."""
 import homeassistant.helpers.config_validation as cv
-import logging
 import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.const import CONF_HOST, CONF_NAME, CONF_SCAN_INTERVAL
 
 from .const import DOMAIN
-
-_LOGGER = logging.getLogger(__name__)
 
 AUTH_SCHEMA = vol.Schema(
     {
