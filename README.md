@@ -2,6 +2,7 @@
 
 [![](https://img.shields.io/github/license/muhlba91/ledpi-homeassistant-integration?style=for-the-badge)](LICENSE)
 [![](https://img.shields.io/github/workflow/status/muhlba91/ledpi-homeassistant-integration/Python%20package?style=for-the-badge)](https://github.com/muhlba91/ledpi-homeassistant-integration/actions)
+<a href="https://www.buymeacoffee.com/muhlba91" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="28" width="150"></a>
 
 This component creates an integration that provides a **light entity and sensors** to control
 the [LED-Pi Controller](https://github.com/muhlba91/ledpi-controller) exposed through a simple API found at
@@ -90,9 +91,38 @@ $ poetry run black .
 $ poetry run flakehell lint
 ```
 
+### Commit Message
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/), and your commit message must also
+adhere to the additional rules outlined in `.conform.yaml`.
+
+---
+
+## Release
+
+To draft a release, use [standard-version](https://github.com/conventional-changelog/standard-version):
+
+```bash
+$ standard-version
+# alternatively
+$ npx standard-version
+```
+
+Finally, push with tags:
+
+```bash
+$ git push --follow-tags
+```
+
 ---
 
 ## Contributions
 
 Please feel free to contribute, be it with Issues or Pull Requests! Please read
 the [Contribution guidelines](CONTRIBUTING.md)
+
+## Supporting
+
+If you enjoy the application and want to support my efforts, please feel free to buy me a coffe. :)
+
+<a href="https://www.buymeacoffee.com/muhlba91" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="75" width="300"></a>
