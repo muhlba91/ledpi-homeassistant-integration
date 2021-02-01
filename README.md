@@ -2,6 +2,7 @@
 
 [![](https://img.shields.io/github/license/muhlba91/ledpi-homeassistant-integration?style=for-the-badge)](LICENSE)
 [![](https://img.shields.io/github/workflow/status/muhlba91/ledpi-homeassistant-integration/Python%20package?style=for-the-badge)](https://github.com/muhlba91/ledpi-homeassistant-integration/actions)
+[![](https://img.shields.io/coveralls/github/muhlba91/ledpi-homeassistant-integration?style=for-the-badge)](https://github.com/muhlba91/ledpi-homeassistant-integration/)
 <a href="https://www.buymeacoffee.com/muhlba91" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="28" width="150"></a>
 
 This component creates an integration that provides a **light entity and sensors** to control

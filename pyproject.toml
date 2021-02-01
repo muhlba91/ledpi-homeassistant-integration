@@ -38,6 +38,7 @@ black = "^20.8b1"
 pre-commit = "^2.9.3"
 homeassistant = "^2021.1.1"
 pytest-asyncio = "^0.14.0"
+coveralls = "^3.0.0"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
