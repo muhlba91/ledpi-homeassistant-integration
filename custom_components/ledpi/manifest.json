@@ -3,8 +3,9 @@
   "name": "LED-Pi - Raspberry Pi WS2801 LED Controller",
   "config_flow": true,
   "documentation": "https://github.com/muhlba91/ledpi-homeassistant-integration",
+  "issue_tracker": "https://github.com/muhlba91/ledpi-homeassistant-integration/issues",
   "requirements": [
-    "webcolors"
+    "webcolors==1.11.1"
   ],
   "ssdp": [],
   "zeroconf": [],
@@ -12,5 +13,6 @@
   "dependencies": [],
   "codeowners": [
     "@muhlba91"
-  ]
+  ],
+  "version": "1.0.0"
 }
